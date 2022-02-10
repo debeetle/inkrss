@@ -15,8 +15,9 @@ export async function handleScheduled(event) {
         const text = await resp.text();
         const id = identify(text);
         console.log(id);
-        if (id != sub[i].id) {
-          const res = await fetch(`${config.PARSE_URL}/api/xml2json`, {
+        let resp;
+        if (sub[i].url.startWith("http://")) {
+          const res = await fetch(`${config.PARSE_URL}/api/xml2xml`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json; charset=utf-8",
@@ -25,7 +26,10 @@ export async function handleScheduled(event) {
               url: sub[i].url,
             }),
           });
-          const data = await res.json();
+        } else {
+          resp = await fetch(sub[i].url);
+        }
+          const data = await res.text();
           for (let j = 0; j < data.items.length && 10; j++) {
             if (
               new Date(data.items[j].pubDate) > new Date(sub[i].lastUpdateTime)
