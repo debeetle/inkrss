@@ -30,13 +30,21 @@ export async function handleScheduled(event) {
           resp = await fetch(sub[i].url);
         }
           const data = await res.text();
-          for (let j = 0; j < data.items.length && 10; j++) {
-            if (
-              new Date(data.items[j].pubDate) > new Date(sub[i].lastUpdateTime)
-            ) {
-              await reply(sub[i], data.items[j]);
+         for (let j = 0; j < data.items.length && i < config.maxItemsCount; j++) {
+    if (data.items[j].pubDate) {
+        if (new Date(data.items[j].pubDate) > new Date(sub[i].lastUpdateTime)) {
+            if (new Date(data.items[0].pubDate) > new Date(lastUpdateTime)) {
+                lastUpdateTime = data.items[0].pubDate;
             }
-          }
+            lastUpdateTime = data.items[0].pubDate;
+            await reply(sub[i], data.items[j]);
+        }
+    } else {
+        sub[i].lastUpdateTime = new Date().toLocaleString();
+        await reply(sub[i], data.items[j]);
+        break;
+    }
+}
           sub[i].errorTimes = 0;
           sub[i].lastUpdateTime = data.items[0].pubDate;
           sub[i].id = id;
