@@ -25,7 +25,7 @@ entry-point = "./"
 # NOT inherited. Need to define in each environment.
 [vars]
 NOTIFIER = "bark" # bark, telegram or wechat
-PARSE_URL = "https://rssparse.vercel.app"
+PARSE_URL = "https://inkrssparse.vercel.app"
 SECRET_PATH = "rss" 
 
 # Bark notification
