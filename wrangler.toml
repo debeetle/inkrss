@@ -1,5 +1,5 @@
 account_id = "59a19a8616a9fa02c1b926eca21347c2"
-name = "inkrss"
+name = "inkrss_dev"
 type = "webpack"
 workers_dev = true
 
