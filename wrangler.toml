@@ -11,7 +11,7 @@ target_type = "webpack"
 webpack_config = "webpack.config.js"
 
 kv_namespaces = [
-  #   { binding = "KV", id = "417fb3b6021040bd8c4b0c7376d0ff58", preview_id = "" }
+     { binding = "KV", id = "417fb3b6021040bd8c4b0c7376d0ff58", preview_id = "" }
 ]
 
 [triggers]
@@ -24,12 +24,12 @@ entry-point = "./"
 # Global variables can be used by the Worker scripts.
 # NOT inherited. Need to define in each environment.
 [vars]
-NOTIFIER = "" # bark, telegram or wechat
-PARSE_URL = "" 
-SECRET_PATH = "" 
+NOTIFIER = "bark" # bark, telegram or wechat
+PARSE_URL = "https://rssparse.vercel.app/"
+SECRET_PATH = "rss" 
 
 # Bark notification
-BARK_URL = ""
+BARK_URL = "http://10.168.38.7:8800"
 
 # Telegram notification
 TELEGRAPH_TOKEN = ""
