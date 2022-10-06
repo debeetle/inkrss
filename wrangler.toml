@@ -11,7 +11,7 @@ target_type = "webpack"
 webpack_config = "webpack.config.js"
 
 kv_namespaces = [
-     { binding = "KV", id = "417fb3b6021040bd8c4b0c7376d0ff58", preview_id = "" }
+     { binding = "inkrss", id = "417fb3b6021040bd8c4b0c7376d0ff58", preview_id = "" }
 ]
 
 [triggers]
@@ -25,7 +25,7 @@ entry-point = "./"
 # NOT inherited. Need to define in each environment.
 [vars]
 NOTIFIER = "bark" # bark, telegram or wechat
-PARSE_URL = "https://rssparse.vercel.app/"
+PARSE_URL = "https://rssparse.vercel.app"
 SECRET_PATH = "rss" 
 
 # Bark notification
